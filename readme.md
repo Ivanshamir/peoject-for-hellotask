@@ -2,7 +2,7 @@
 <ol>
     <li>Clone the repo</li>
     <li>composer install</li>
-    <li>nom install</li>
+    <li>npm install</li>
     <li>Copy .env.example and rename to .env</li>
     <li>Run php artisan key:generate</li>
     <li>Add database credentials in .env</li>
