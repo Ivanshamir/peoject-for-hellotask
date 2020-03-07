@@ -31,3 +31,7 @@ Route::group([
     Route::post('me', 'AuthController@me');
 
 });
+
+Route::apiResource('/note', 'NoteController');
+
+Route::Post('/note/save-local-data', 'NoteController@saveLocalData');

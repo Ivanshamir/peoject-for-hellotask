@@ -10,6 +10,18 @@ class User {
         if(Token.isValid(access_token)){
             AppStorage.store(access_token, username)
         }
+
+        var notes = localStorage.getItem('notes');
+        if(notes){
+           var notes = JSON.parse(notes);
+            notes.forEach(function(note){
+                console.log(note);
+                axios.post('/api/note/save-local-data',note)
+                    .then()
+                    .catch(error => console.log(error))
+            });
+        }
+        localStorage.removeItem('notes');
     }
 
     hasToken(){
