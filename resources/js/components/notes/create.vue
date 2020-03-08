@@ -51,7 +51,6 @@
             noteInsert(){
                 if(!User.loggedIn()){
                     this.offlineInsert();
-                    this.notification()
                 }else{
                 axios.post('/api/note', this.form)
                     .then(() => {
@@ -75,9 +74,11 @@
                   var existing = JSON.parse(note);
                    existing.push({id: Math.floor(Math.random() * 101), name: this.form.name, description: this.form.description});
                    localStorage.setItem('notes', JSON.stringify(existing));
+                   this.notification()
                }else{
                    result.push({id: Math.floor(Math.random() * 101),name: this.form.name, description: this.form.description});
                    localStorage.setItem('notes', JSON.stringify(result));
+                   this.notification()
                }
                 this.clearData();
             },

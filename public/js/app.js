@@ -2366,7 +2366,6 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!User.loggedIn()) {
         this.offlineInsert();
-        this.notification();
       } else {
         axios.post('/api/note', this.form).then(function () {
           _this.notification();
@@ -2396,6 +2395,7 @@ __webpack_require__.r(__webpack_exports__);
           description: this.form.description
         });
         localStorage.setItem('notes', JSON.stringify(existing));
+        this.notification();
       } else {
         result.push({
           id: Math.floor(Math.random() * 101),
@@ -2403,6 +2403,7 @@ __webpack_require__.r(__webpack_exports__);
           description: this.form.description
         });
         localStorage.setItem('notes', JSON.stringify(result));
+        this.notification();
       }
 
       this.clearData();
